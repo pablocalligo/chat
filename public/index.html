@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>AGIP Login</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+</head>
+
+<body>
+	<div id="app">
+		<v-app>
+			<v-main>
+				<v-container fluid class="d-flex justify-center">
+					<v-card class="mx-auto" min-width="500">
+					<v-form action="chat.html">
+							<v-card-title>
+								Login Chat
+							</v-card-title>
+							<v-divider></v-divider>
+							<v-card-text>
+									<v-col>
+										<v-text-field v-model="name" name="name" label="Name"></v-text-field>
+									</v-col>
+									<v-col>
+										<v-text-field v-model="room" name="room" label="Room"></v-text-field>
+									</v-col>
+							</v-card-text>
+							<v-card-actions>
+								<v-spacer></v-spacer>
+								<v-btn type="submit" :disabled="!validForm">
+									Login
+								</v-btn>
+							</v-card-actions>
+						</v-form>
+						</v-card>
+				</v-container>
+			</v-main>
+		</v-app>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			vuetify: new Vuetify({
+				theme: { dark: true },
+			}),
+			data: {
+				name: '',
+				room: ''
+			},
+			computed: {
+				validForm: {
+					get() {
+						return this.name?.length >= 3 && this.room?.length >= 3
+					},
+					set() { }
+				}
+			},
+			methods: {}
+		})
+	</script>
+</body>
+
+</html>
