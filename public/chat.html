@@ -2,20 +2,55 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Chat</title>
+	<meta charset="UTF-8" />
+	<title>AGIP Login</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
 </head>
 
 <body>
-    <h1>Mensajes</h1>
+	<div id="app">
+		<v-app>
+			<v-main>
+				<v-container fluid class="d-flex justify-center">
+					<v-card class="mx-auto" min-width="700">
+						<v-card-title>
+							Room: {{ room }}
+						</v-card-title>
+						<v-divider></v-divider>
+						<v-card-text>
+						</v-card-text>
+						<v-divider></v-divider>
+						<v-card-actions>
+						</v-card-actions>
+						</v-form>
+					</v-card>
+				</v-container>
+			</v-main>
+		</v-app>
+	</div>
 
-
-    <script src="socket.io/socket.io.js"></script>
-    <script src="js/socket-chat.js"></script>
-
-
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			vuetify: new Vuetify({
+				theme: { dark: true },
+			}),
+			data: {},
+			computed: {
+				room() {
+					const params = new URLSearchParams(window.location.search)
+					return params.get('room')
+				}
+			},
+			methods: {}
+		})
+	</script>
 </body>
 
 </html>
